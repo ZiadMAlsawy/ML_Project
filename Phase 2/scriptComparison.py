@@ -28,11 +28,19 @@ classfication_comparison_trial = {
     "Number_epochs": [50],
     "f1_score": [1.0000],
     "result": [[]] ,
-    "difference_percentage":[0]
+    "difference_percentage":[0],
+    "validation_accuracy" :[[]],
+    "validation_loss":[[]]
 }
 
 trialResult = pd.read_csv("Tracing Measures/Trial_1.txt")
 reference = trialResult['Class'].to_list()
 classfication_comparison_trial["result"] = [reference]
+
+val_loss, val_accuracy = extract_values("/Tracing_Measures/Trial_1.txt")
+
+classfication_comparison_trial["validation_accuracy"] = [val_accuracy]
+classfication_comparison_trial["validation_loss"] = [val_loss]
+
 comparison_df = pd.DataFrame(classfication_comparison_trial)
 print(comparison_df)
