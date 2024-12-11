@@ -31,10 +31,8 @@ classfication_comparison_trial = {
     "difference_percentage":[0]
 }
 
-trialResult = pd.read_csv("Task-2 Trial (1).csv")
+trialResult = pd.read_csv("Tracing Measures/Trial_1.txt")
 reference = trialResult['Class'].to_list()
 classfication_comparison_trial["result"] = [reference]
 comparison_df = pd.DataFrame(classfication_comparison_trial)
 print(comparison_df)
-
-
